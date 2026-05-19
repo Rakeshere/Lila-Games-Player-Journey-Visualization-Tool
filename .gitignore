@@ -2,6 +2,8 @@
 node_modules/
 frontend/dist/
 frontend/public/minimaps/
+frontend/public/data/
+frontend/.env.production
 frontend/src/assets/
 frontend/README.md
 __pycache__/

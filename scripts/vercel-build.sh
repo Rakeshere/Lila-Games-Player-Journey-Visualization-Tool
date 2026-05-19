@@ -2,16 +2,14 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-export PYTHONPATH=.
-
-echo "==> Create Python virtualenv (avoids PEP 668 / uv managed system Python)"
+echo "==> Create Python virtualenv"
 python3 -m venv .build-venv
 # shellcheck disable=SC1091
 source .build-venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements-vercel.txt
 
-echo "==> Download game data if missing (not stored in GitHub)"
+echo "==> Download game data if missing"
 if [ ! -d "player_data/February_10" ]; then
   gdown 19N6ASpZJkexYb-v3m5XU_xvi-YywRTe9 -O player_data.zip
   unzip -q -o player_data.zip
@@ -23,16 +21,18 @@ if [ ! -d "player_data/minimaps" ]; then
   exit 1
 fi
 
-echo "==> Build match index"
-python -c "from backend.data_service import DataService; DataService().build_match_index(force=True)"
+echo "==> Precompute static JSON (no Python Lambda on Vercel)"
+export PYTHONPATH=.
+python scripts/build_static_data.py
 
-echo "==> Copy minimaps into frontend public"
+echo "==> Copy minimaps"
 mkdir -p frontend/public/minimaps
 cp -r player_data/minimaps/* frontend/public/minimaps/
 
-echo "==> Build frontend"
+echo "==> Build frontend (static data mode)"
+echo "VITE_STATIC_DATA=true" > frontend/.env.production
 cd frontend
 npm run build
 cd ..
 
-echo "==> Vercel build done"
+echo "==> Vercel build done (static site only)"

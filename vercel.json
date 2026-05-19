@@ -5,20 +5,4 @@
   "installCommand": "cd frontend && npm ci",
   "outputDirectory": "frontend/dist",
   "framework": null,
-  "functions": {
-    "api/index.py": {
-      "maxDuration": 60,
-      "memory": 1024,
-      "includeFiles": "player_data/**"
-    }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
-    }
-  ]
 }

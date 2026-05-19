@@ -1,30 +1,25 @@
 # Deployment
 
-## Vercel (recommended)
+## Vercel (static site — recommended)
 
-1. Import [the GitHub repository](https://github.com/Rakeshere/Lila-Games-Player-Journey-Visualization-Tool) on [vercel.com](https://vercel.com).
-2. Use default settings from `vercel.json` (`installCommand` runs `npm ci` only; Python deps install inside `scripts/vercel-build.sh` via a virtualenv).
-3. The build downloads `player_data` from Google Drive automatically.
-4. Verify: `https://<your-app>.vercel.app/api/health`
+The production build **does not use a Python Lambda**. During CI, telemetry is processed once into JSON under `frontend/public/data/`, then served as static files. This avoids the 250 MB serverless bundle limit.
 
-Environment variables (optional):
+1. Import the repo on [vercel.com](https://vercel.com).
+2. Default settings from `vercel.json` apply automatically.
+3. Build runs `scripts/vercel-build.sh` (downloads data, precomputes JSON, builds React).
+4. Verify: `https://<your-app>.vercel.app/data/health.json`
 
-| Variable | Value |
-|----------|--------|
-| `BUILD_MATCH_INDEX` | `1` |
-| `PYTHONPATH` | `.` |
-
-## Docker
+## Local development (full API)
 
 ```bash
-docker build -t lila-journey .
-docker run -p 8000:8000 -e BUILD_MATCH_INDEX=1 lila-journey
+pip install -r requirements.txt
+# extract player_data/
+cd frontend && npm install && npm run build && cd ..
+$env:PYTHONPATH="."; python -m uvicorn backend.main:app --port 8000
 ```
 
-Requires `player_data/` in the image or mounted as a volume.
+Uses FastAPI + DuckDB at runtime (no `VITE_STATIC_DATA`).
 
-## Render
+## Docker / Render
 
-- **Build:** `pip install -r requirements.txt && cd frontend && npm ci && npm run build`
-- **Start:** `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
-- **Env:** `PYTHONPATH=.`, `BUILD_MATCH_INDEX=1`
+See `Dockerfile` and `render.yaml` for a single container with live parquet queries.

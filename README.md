@@ -76,7 +76,7 @@ Open http://localhost:8000
 
 ## Deployment
 
-See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for Vercel and Docker.
+**Vercel:** Static site — telemetry is baked into JSON at build time (no Python serverless, no 250 MB Lambda limit). See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 Game data is downloaded during the Vercel build (not stored in git).
 

@@ -1,14 +1,10 @@
-# Do not upload local dev artifacts
-node_modules
-frontend/node_modules
+# Exclude from deployment bundle (build still uses repo clone)
 .build-venv
 .venv
+player_data/
+player_data.zip
+node_modules
+frontend/node_modules
 *.zip
 docs/INTERVIEW_*
-docs/*.txt
 WHAT_IS_ON_GITHUB.txt
-scripts/verify_*
-scripts/explore_*
-scripts/generate_*
-scripts/setup_*
-scripts/fix_commit.bat
