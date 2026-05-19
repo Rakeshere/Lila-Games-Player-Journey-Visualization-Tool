@@ -6,7 +6,10 @@ Web application for exploring player movement, combat, loot pickups, and storm d
 
 ## Live demo
 
-Deploy to [Vercel](https://vercel.com) from this repository (see [Deployment](#deployment)).  
+**Recommended:** Deploy on [Railway](https://railway.com) from GitHub — see [docs/DEPLOY_RAILWAY.md](docs/DEPLOY_RAILWAY.md).
+
+Alternative: Vercel static build — see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 Local: **http://localhost:8000** after setup below.
 
 ## Features
