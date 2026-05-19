@@ -6,7 +6,7 @@ Web application for exploring player movement, combat, loot pickups, and storm d
 
 ## Live demo
 
-**Recommended:** Deploy on [Railway](https://railway.com) from GitHub — see [docs/DEPLOY_RAILWAY.md](docs/DEPLOY_RAILWAY.md).
+**Recommended:** Deploy on [Railway](https://railway.com) from GitHub — see [docs/DEPLOY_RAILWAY.md]([docs/DEPLOY_RAILWAY.md](https://lila-player-journey-production.up.railway.app/)).
 
 Alternative: Vercel static build — see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
