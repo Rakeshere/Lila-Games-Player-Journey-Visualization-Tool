@@ -6,9 +6,7 @@ Web application for exploring player movement, combat, loot pickups, and storm d
 
 ## Live demo
 
-**Recommended:** Deploy on [Railway](https://railway.com) from GitHub — see [docs/DEPLOY_RAILWAY.md]([docs/DEPLOY_RAILWAY.md](https://lila-player-journey-production.up.railway.app/)).
-
-Alternative: Vercel static build — see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+**Recommended:** Deploy on [Railway](https://railway.com) from GitHub — see Live: https://lila-player-journey-production.up.railway.app/
 
 Local: **http://localhost:8000** after setup below.
 
@@ -52,7 +50,8 @@ $env:PYTHONPATH="."
 python -m uvicorn backend.main:app --reload --port 8000
 ```
 
-Open http://localhost:8000
+Open ( https://lila-player-journey-production.up.railway.app/ )
+    ( https://lila-player-journey-production-6edc.up.railway.app/ )
 
 ## Project structure
 
