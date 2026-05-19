@@ -1,0 +1,14 @@
+# Do not upload local dev artifacts
+node_modules
+frontend/node_modules
+.build-venv
+.venv
+*.zip
+docs/INTERVIEW_*
+docs/*.txt
+WHAT_IS_ON_GITHUB.txt
+scripts/verify_*
+scripts/explore_*
+scripts/generate_*
+scripts/setup_*
+scripts/fix_commit.bat

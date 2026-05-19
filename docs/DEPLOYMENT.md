@@ -3,7 +3,7 @@
 ## Vercel (recommended)
 
 1. Import [the GitHub repository](https://github.com/Rakeshere/Lila-Games-Player-Journey-Visualization-Tool) on [vercel.com](https://vercel.com).
-2. Use default settings from `vercel.json` (build runs `scripts/vercel-build.sh`).
+2. Use default settings from `vercel.json` (`installCommand` runs `npm ci` only; Python deps install inside `scripts/vercel-build.sh` via a virtualenv).
 3. The build downloads `player_data` from Google Drive automatically.
 4. Verify: `https://<your-app>.vercel.app/api/health`
 

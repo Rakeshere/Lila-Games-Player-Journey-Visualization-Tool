@@ -8,6 +8,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.build-venv/
 
 # Secrets
 .env
@@ -38,6 +39,7 @@ scripts/verify_*
 scripts/explore_*
 scripts/check_*
 scripts/setup_*
+scripts/fix_commit.bat
 
 # Archives
 *.zip

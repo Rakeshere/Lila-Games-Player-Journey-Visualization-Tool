@@ -4,12 +4,15 @@ cd "$(dirname "$0")/.."
 
 export PYTHONPATH=.
 
-echo "==> Install Python deps"
+echo "==> Create Python virtualenv (avoids PEP 668 / uv managed system Python)"
+python3 -m venv .build-venv
+# shellcheck disable=SC1091
+source .build-venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements-vercel.txt
 
 echo "==> Download game data if missing (not stored in GitHub)"
 if [ ! -d "player_data/February_10" ]; then
-  pip install gdown
   gdown 19N6ASpZJkexYb-v3m5XU_xvi-YywRTe9 -O player_data.zip
   unzip -q -o player_data.zip
   rm -f player_data.zip
@@ -29,7 +32,6 @@ cp -r player_data/minimaps/* frontend/public/minimaps/
 
 echo "==> Build frontend"
 cd frontend
-npm ci
 npm run build
 cd ..
 
