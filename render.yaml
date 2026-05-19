@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lila-player-journey
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHONPATH
+        value: /app
+      - key: BUILD_MATCH_INDEX
+        value: "1"

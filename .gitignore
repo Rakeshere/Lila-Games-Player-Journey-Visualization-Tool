@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+frontend/dist/
+frontend/public/minimaps/
+frontend/src/assets/
+frontend/README.md
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# OS & tools
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+.cursor/
+.vercel/
+
+# Data (download locally or on CI)
+player_data/
+player_data.zip
+
+# Local notes & drafts (not for publication)
+docs/INTERVIEW_*
+docs/LILA_*
+docs/RUN_IN_VSCODE*
+docs/*.txt
+WHAT_IS_ON_GITHUB.txt
+scripts/generate_*
+scripts/verify_*
+scripts/explore_*
+scripts/check_*
+scripts/setup_*
+
+# Archives
+*.zip
+*.tar.gz
